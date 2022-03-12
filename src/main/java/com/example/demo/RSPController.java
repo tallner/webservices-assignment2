@@ -13,8 +13,7 @@ public class RSPController {
 	
 	@RequestMapping(
 			path = "/RPC",
-			method = RequestMethod.POST,
-			produces = MediaType.APPLICATION_JSON_VALUE)
+			method = RequestMethod.POST)
 	
 	public String evaluateUserInput(
 			String player1Move, 
@@ -22,6 +21,27 @@ public class RSPController {
 		
 		this.player1Move = player1Move;
 		this.player2Move = player2Move;
+		
+		
+		return 
+				"Player1: " + this.player1Move + "<br>" + 
+				"Player2: " + this.player2Move + "<br>" +
+				"<br>" +
+				"Current score is" + "<br>" +
+				"Player1: " + this.player1Move + "<br>" +
+				"Player2: " + this.player2Move;
+	}
+	
+	
+	@RequestMapping(
+			path = "/RPC",
+			method = RequestMethod.GET,
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	
+	public String totalScore(
+			String player1Move, 
+			String player2Move){
+			
 		
 		return "{ \"data\": \"value\" }";
 	}
