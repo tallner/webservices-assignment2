@@ -3,6 +3,7 @@ package com.example.demo;
 public class Player {
 	private String selectedMove; //this is the move the player makes
 	private int nrOfWins; //this is nr of wins
+	private int currentScore;
 	
 	public Player() {}
 
@@ -20,6 +21,18 @@ public class Player {
 
 	public void setNrOfWins(int nrOfWins) {
 		this.nrOfWins = nrOfWins;
+	}
+	
+	public int getCurrentScore() {
+		return currentScore;
+	}
+	
+	public void currentRoundsScore(boolean score) {
+		this.currentScore += score ? 1 : 0;
+	}
+	
+	public void resetScore() {
+		this.currentScore = 0;
 	}
 	
 	
