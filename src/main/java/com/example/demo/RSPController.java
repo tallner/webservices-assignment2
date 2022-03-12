@@ -6,15 +6,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping(path="/RPC")
 public class RSPController {
 	
 	private String player1Move = "";
 	private String player2Move = "computer";
 	
-	@RequestMapping(
-			path = "/RPC",
-			method = RequestMethod.POST)
-	
+	@RequestMapping(method = RequestMethod.POST)
 	public String evaluateUserInput(
 			String player1Move, 
 			String player2Move){
@@ -34,7 +32,6 @@ public class RSPController {
 	
 	
 	@RequestMapping(
-			path = "/RPC",
 			method = RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	
