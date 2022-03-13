@@ -53,12 +53,15 @@ public class RSPController {
 			method = RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	
-	public String totalScore(
-			String player1Move, 
-			String player2Move){
-			
+	public String totalScore(){
 		
-		return "{ \"data\": \"value\" }";
+		return ObjectJson();
+	}
+	
+	private String ObjectJson() {
+		return "{\"Player 1\":" + "[{\"TotalWins\":" + "\"" + rspGame.getPlayer1TotalWins() + "\"}]" + "," +
+				"\"Player 2\":" + "[{\"TotalWins\":" + "\"" + rspGame.getPlayer2TotalWins() + "\"}]" + "}";
+		
 	}
 	
 

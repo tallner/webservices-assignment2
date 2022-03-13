@@ -30,6 +30,15 @@ public class RSPGameModel {
 	public String getPlayer2Move() {
 		return player2.getSelectedMove();
 	}
+	
+	// get total nr of wins. this is used for display only
+	public int getPlayer1TotalWins() {
+		return player1.getNrOfWins();
+	}
+	
+	public int getPlayer2TotalWins() {
+		return player2.getNrOfWins();
+	}
 
 	public String calculateScore() {
 		String currentScore = "";
@@ -110,8 +119,10 @@ public class RSPGameModel {
 			winner = "tie";
 		}else if (player1.getCurrentScore()==3) {
 			winner = "player1";
+			player1.increaseNrOfWins();
 		}else if (player2.getCurrentScore()==3) {
 			winner = "player2";
+			player2.increaseNrOfWins();
 		}else winner = "round not finished";
 		
 		//return status
@@ -121,7 +132,7 @@ public class RSPGameModel {
 
 	}
 	
-	
+	// generate random value if a computer player is set
 	private String randomVal() {
 		Random rn = new Random();
 		int answer = rn.nextInt(3);

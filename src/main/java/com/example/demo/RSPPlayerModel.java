@@ -15,6 +15,10 @@ public class RSPPlayerModel {
 		this.selectedMove = selectedMove;
 	}
 
+	public void increaseNrOfWins() {
+		this.nrOfWins += 1;
+	}
+	
 	public int getNrOfWins() {
 		return nrOfWins;
 	}
