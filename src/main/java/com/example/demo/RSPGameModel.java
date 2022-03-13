@@ -64,10 +64,6 @@ public class RSPGameModel {
 		return this.nrOfGamesPlayed;
 	}
 	
-	public void increaseNrOfGamesPlayed() {
-		this.nrOfGamesPlayed += 1;
-	}
-	
 	// calculate gamescore
 	public String calculateScore() {
 		String currentScore = "";
@@ -157,6 +153,11 @@ public class RSPGameModel {
 			player2.increaseNrOfWins();
 			player1.increaseNrOfLost();
 		}else winner = "round not finished";
+		
+		//increase gamecounter if there is a winner
+		if (player1.getCurrentScore()==3 || player2.getCurrentScore()==3) {
+			this.nrOfGamesPlayed += 1;
+		}
 		
 		//return status
 		return "Player1: " + player1.getCurrentScore() + "<br>" +

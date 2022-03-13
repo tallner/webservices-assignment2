@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path="/RPC")
 public class RSPController {
 	
-//	private String player1Move = "";
-//	private String player2Move = "";
-	
 	private RSPGameModel rspGame = new RSPGameModel(); //use the RSPmodel to set up a new game
 	
 	@RequestMapping(method = RequestMethod.POST)
@@ -37,7 +34,6 @@ public class RSPController {
 		
 		// set the moves to the game model that calculates 
 		// the scores and returns it in string format
-		rspGame.increaseNrOfGamesPlayed();
 		rspGame.setPlayer1Move(player1Move);
 		rspGame.setPlayer2Move(player2Move);
 		String currentResult = rspGame.calculateScore();
