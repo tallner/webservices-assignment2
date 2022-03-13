@@ -55,7 +55,6 @@ public class RSPController {
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	
 	public String totalScore(){
-		
 		return ObjectJson();
 	}
 	
@@ -68,9 +67,9 @@ public class RSPController {
 					"[{"+
 						"\"TotalWins\":" + "\"" + rspGame.getPlayer1TotalWins() + "\""+ 
 						"," +
-						"\"TotalLoss\":" + "\"" + 0 + "\""+ 
+						"\"TotalLoss\":" + "\"" + rspGame.getPlayer1TotalLost() + "\""+ 
 						"," +
-						"\"TotalTie\":" + "\"" + 0 + "\""+
+						"\"TotalTie\":" + "\"" + rspGame.getPlayer1TotalTies() + "\""+
 					"}]"+
 				"," +
 				
@@ -78,9 +77,9 @@ public class RSPController {
 					"[{"+
 						"\"TotalWins\":" + "\"" + rspGame.getPlayer2TotalWins() + "\""+ 
 						"," +
-						"\"TotalLoss\":" + "\"" + 0 + "\""+ 
+						"\"TotalLoss\":" + "\"" + rspGame.getPlayer2TotalLost() + "\""+ 
 						"," +
-						"\"TotalTie\":" + "\"" + 0 + "\""+
+						"\"TotalTie\":" + "\"" + rspGame.getPlayer2TotalTies() + "\""+
 					"}]"+
 				"}";
 	}

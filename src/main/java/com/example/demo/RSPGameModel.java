@@ -41,6 +41,24 @@ public class RSPGameModel {
 		return player2.getNrOfWins();
 	}
 	
+	// get total nr of lost. this is used for display only
+	public int getPlayer1TotalLost() {
+		return player1.getNrOfLost();
+	}
+	
+	public int getPlayer2TotalLost() {
+		return player2.getNrOfLost();
+	}
+	
+	// get total nr of ties. this is used for display only
+	public int getPlayer1TotalTies() {
+		return player1.getNrOfTie();
+	}
+	
+	public int getPlayer2TotalTies() {
+		return player2.getNrOfTie();
+	}
+	
 	// get total nr of plays. this is used for display only
 	public int getNrOfGamesPlayed() {
 		return this.nrOfGamesPlayed;
@@ -128,12 +146,16 @@ public class RSPGameModel {
 		//if there is a winner return this, otherwise return score
 		if (player1.getCurrentScore()==3 && player2.getCurrentScore()==3) {
 			winner = "tie";
+			player1.increaseNrOfTie();
+			player2.increaseNrOfTie();
 		}else if (player1.getCurrentScore()==3) {
 			winner = "player1";
 			player1.increaseNrOfWins();
+			player2.increaseNrOfLost();
 		}else if (player2.getCurrentScore()==3) {
 			winner = "player2";
 			player2.increaseNrOfWins();
+			player1.increaseNrOfLost();
 		}else winner = "round not finished";
 		
 		//return status
