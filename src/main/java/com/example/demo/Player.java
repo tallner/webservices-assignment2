@@ -27,8 +27,8 @@ public class Player {
 		return currentScore;
 	}
 	
-	public void currentRoundsScore(boolean score) {
-		this.currentScore += score ? 1 : 0;
+	public void setScore() {
+		this.currentScore += 1;
 	}
 	
 	public void resetScore() {

@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path="/RPC")
 public class RSPController {
 	
-	private String player1Move = "";
-	private String player2Move = "computer";
+//	private String player1Move = "";
+//	private String player2Move = "";
 	
 	private RSPModel rspGame = new RSPModel(); //use the RSPmodel to set up a new game
 	
@@ -21,16 +21,14 @@ public class RSPController {
 		
 		rspGame.setPlayer1Move(player1Move);
 		rspGame.setPlayer2Move(player2Move);
-		rspGame.calculateScore;
+		String currentResult = rspGame.calculateScore();
 			
 		
 		return 
-				"Player1: " + this.player1Move + "<br>" + 
-				"Player2: " + this.player2Move + "<br>" +
+				"Player1: " + player1Move + "<br>" + 
+				"Player2: " + player2Move + "<br>" +
 				"<br>" +
-				"Current score is" + "<br>" +
-				"Player1: " + rspGame.getPlayer1Score() + "<br>" +
-				"Player2: " + rspGame.getPlayer2Score();
+				"Current score:" + "<br>" + currentResult;
 	}
 	
 	
