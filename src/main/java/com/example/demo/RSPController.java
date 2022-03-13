@@ -37,6 +37,7 @@ public class RSPController {
 		
 		// set the moves to the game model that calculates 
 		// the scores and returns it in string format
+		rspGame.increaseNrOfGamesPlayed();
 		rspGame.setPlayer1Move(player1Move);
 		rspGame.setPlayer2Move(player2Move);
 		String currentResult = rspGame.calculateScore();
@@ -59,9 +60,29 @@ public class RSPController {
 	}
 	
 	private String ObjectJson() {
-		return "{\"Player 1\":" + "[{\"TotalWins\":" + "\"" + rspGame.getPlayer1TotalWins() + "\"}]" + "," +
-				"\"Player 2\":" + "[{\"TotalWins\":" + "\"" + rspGame.getPlayer2TotalWins() + "\"}]" + "}";
-		
+		return "{"+ 
+				"\"TotalNrOfGames\": \"" + rspGame.getNrOfGamesPlayed() + 
+				"\"," +
+				
+				"\"Player 1\":" + 
+					"[{"+
+						"\"TotalWins\":" + "\"" + rspGame.getPlayer1TotalWins() + "\""+ 
+						"," +
+						"\"TotalLoss\":" + "\"" + 0 + "\""+ 
+						"," +
+						"\"TotalTie\":" + "\"" + 0 + "\""+
+					"}]"+
+				"," +
+				
+				"\"Player 2\":" + 
+					"[{"+
+						"\"TotalWins\":" + "\"" + rspGame.getPlayer2TotalWins() + "\""+ 
+						"," +
+						"\"TotalLoss\":" + "\"" + 0 + "\""+ 
+						"," +
+						"\"TotalTie\":" + "\"" + 0 + "\""+
+					"}]"+
+				"}";
 	}
 	
 

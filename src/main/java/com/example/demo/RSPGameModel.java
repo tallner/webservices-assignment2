@@ -5,6 +5,7 @@ import java.util.Random;
 public class RSPGameModel {
 	private RSPPlayerModel player1 = new RSPPlayerModel();
 	private RSPPlayerModel player2 = new RSPPlayerModel();
+	private int nrOfGamesPlayed;
 	
 	public RSPGameModel() {}
 
@@ -39,7 +40,17 @@ public class RSPGameModel {
 	public int getPlayer2TotalWins() {
 		return player2.getNrOfWins();
 	}
-
+	
+	// get total nr of plays. this is used for display only
+	public int getNrOfGamesPlayed() {
+		return this.nrOfGamesPlayed;
+	}
+	
+	public void increaseNrOfGamesPlayed() {
+		this.nrOfGamesPlayed += 1;
+	}
+	
+	// calculate gamescore
 	public String calculateScore() {
 		String currentScore = "";
 		String winner = "";
