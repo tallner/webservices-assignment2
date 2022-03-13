@@ -12,21 +12,38 @@ public class RSPController {
 //	private String player1Move = "";
 //	private String player2Move = "";
 	
-	private RSPModel rspGame = new RSPModel(); //use the RSPmodel to set up a new game
+	private RSPGameModel rspGame = new RSPGameModel(); //use the RSPmodel to set up a new game
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public String evaluateUserInput(
 			String player1Move, 
 			String player2Move){
 		
+		// validate input
+		if (
+				(!player1Move.equals("rock") &&
+				!player1Move.equals("scissors") &&
+				!player1Move.equals("paper") &&
+				!player1Move.equals("computer"))
+				||
+				(!player2Move.equals("rock") &&
+				!player2Move.equals("scissors") &&
+				!player2Move.equals("paper") &&
+				!player2Move.equals("computer"))
+			)
+		{
+			return "Check your input values";
+		}
+		
+		// set the moves to the game model that calculates 
+		// the scores and returns it in string format
 		rspGame.setPlayer1Move(player1Move);
 		rspGame.setPlayer2Move(player2Move);
 		String currentResult = rspGame.calculateScore();
-			
 		
 		return 
-				"Player1: " + player1Move + "<br>" + 
-				"Player2: " + player2Move + "<br>" +
+				"Player1: " + rspGame.getPlayer1Move() + "<br>" + 
+				"Player2: " + rspGame.getPlayer2Move() + "<br>" +
 				"<br>" +
 				"Current score:" + "<br>" + currentResult;
 	}

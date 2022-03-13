@@ -1,11 +1,11 @@
 package com.example.demo;
 
-public class Player {
+public class RSPPlayerModel {
 	private String selectedMove; //this is the move the player makes
 	private int nrOfWins; //this is nr of wins
 	private int currentScore;
 	
-	public Player() {}
+	public RSPPlayerModel() {}
 
 	public String getSelectedMove() {
 		return selectedMove;
